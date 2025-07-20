@@ -1,0 +1,40 @@
+.layout {
+  width: 100%;
+  padding: 0 16px;
+  margin: 0 auto;
+}
+
+@media (min-width: 640px) {
+  .layout {
+    max-width: 540px;
+    padding: 0 24px;
+  }
+}
+
+@media (min-width: 768px) {
+  .layout {
+    max-width: 720px;
+    padding: 0 24px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .layout {
+    max-width: 960px;
+    padding: 0 32px;
+  }
+}
+
+@media (min-width: 1280px) {
+  .layout {
+    max-width: 1140px;
+    padding: 0 32px;
+  }
+}
+
+@media (min-width: 1536px) {
+  .layout {
+    max-width: 1320px;
+    padding: 0 48px;
+  }
+}

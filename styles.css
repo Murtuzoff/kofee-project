@@ -1,0 +1,101 @@
+@import "tailwindcss";
+
+@theme {
+  --font-main: "Source Serif 4", serif;
+  --font-heading: "Bebas Neue", sans-serif;
+
+  --color-beige: #dddad5;
+  --color-coffee: #4f4844;
+  --color-cream: #f5f4f2;
+  --color-greige: #7f7874;
+  --color-pastel: #d2cfcc;
+  --color-pearl: #edebe8;
+  --color-tangerine: #ee8542;
+}
+
+@layer base {
+  body {
+    @apply font-main text-coffee bg-cream text-base xl:text-lg;
+  }
+
+  header,
+  footer {
+    @apply mx-auto max-w-[1920px];
+  }
+
+  main {
+    @apply mx-auto flex max-w-[1920px] flex-col gap-14 lg:gap-28;
+  }
+
+  h2 {
+    @apply font-heading text-6xl uppercase md:text-7xl xl:text-8xl;
+  }
+
+  h3 {
+    @apply font-heading text-3xl uppercase md:text-4xl xl:text-5xl;
+  }
+
+  h4 {
+    @apply text-xl xl:text-2xl;
+  }
+
+  blockquote {
+    @apply text-lg font-light italic md:text-xl xl:text-2xl;
+  }
+
+  p {
+    @apply font-light;
+  }
+}
+
+@layer components {
+  .footer__top {
+    @apply pt-10 pb-7 lg:pt-20 lg:pb-14;
+  }
+
+  .footer__bottom {
+    @apply py-3 lg:py-5;
+  }
+
+  .tw-link {
+    @apply hover:text-tangerine cursor-pointer transition-colors duration-300;
+  }
+
+  .tw-button {
+    @apply cursor-pointer leading-none tracking-wide text-white uppercase select-none;
+    @apply bg-tangerine hover:bg-coffee rounded-4xl shadow-md transition-colors duration-300;
+    @apply h-9 w-38 sm:h-10 sm:w-43 lg:h-11 lg:w-48 xl:h-12 xl:w-53;
+  }
+
+  .tw-radio {
+    @apply border-tangerine checked:bg-tangerine rounded-full border;
+    @apply z-10 h-3 w-3 cursor-pointer appearance-none transition-all;
+  }
+
+  .tw-layout {
+    @apply mx-auto w-full max-w-[540px] px-4;
+    @apply sm:max-w-[600px] sm:px-6;
+    @apply md:max-w-[720px] md:px-6;
+    @apply lg:max-w-[960px] lg:px-8;
+    @apply xl:max-w-[1140px] xl:px-8;
+    @apply 2xl:max-w-[1320px] 2xl:px-12;
+  }
+
+  .text-small {
+    @apply text-sm font-light xl:text-base;
+  }
+
+  .text-big {
+    @apply text-base font-light md:text-lg xl:text-xl;
+  }
+}
+
+@layer utilities {
+  .tw-button:focus-visible {
+    @apply outline-tangerine outline outline-offset-2;
+  }
+
+  .tw-link:focus-visible {
+    @apply outline-tangerine outline outline-offset-2;
+  }
+}
