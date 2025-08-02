@@ -14,6 +14,10 @@
 }
 
 @layer base {
+  html {
+    @apply scroll-smooth;
+  }
+
   body {
     @apply font-main text-coffee bg-cream text-base xl:text-lg;
   }
@@ -24,7 +28,7 @@
   }
 
   main {
-    @apply mx-auto flex max-w-[1920px] flex-col gap-14 lg:gap-28;
+    @apply mx-auto flex max-w-[1920px] flex-col lg:gap-14 lg:pt-14;
   }
 
   h2 {
@@ -49,6 +53,14 @@
 }
 
 @layer components {
+  #about,
+  #menu,
+  #contact,
+  #news,
+  #gallery {
+    @apply scroll-mt-12 lg:scroll-mt-0;
+  }
+
   .footer__top {
     @apply pt-10 pb-7 lg:pt-20 lg:pb-14;
   }

@@ -21,212 +21,147 @@
     />
   </head>
   <body>
-    <header>
-      <!-- Infobar -->
-      <div
-        class="info-bar border-b-pastel text-small border-b"
-        aria-label="Top info"
-      >
-        <div class="info-bar__container tw-layout">
-          <ul
-            class="info-bar__list flex flex-wrap justify-between gap-x-4 py-2"
-          >
-            <li class="info-bar__item">Tired? Let’s have a cup of coffee.</li>
-            <li class="info-bar__item">Call us: 12 345 67 89</li>
-            <li class="info-bar__item">Our location: Baku, Azerbaijan</li>
-          </ul>
-        </div>
+    <!-- Infobar -->
+    <div
+      class="info-bar border-b-pastel text-small border-b"
+      aria-label="Top info"
+      role="region"
+    >
+      <div class="info-bar__container tw-layout">
+        <ul class="info-bar__list flex flex-wrap justify-between gap-x-4 py-2">
+          <li class="info-bar__item">Tired? Let’s have a cup of coffee.</li>
+          <li class="info-bar__item">Call us: 12 345 67 89</li>
+          <li class="info-bar__item">Our location: Baku, Azerbaijan</li>
+        </ul>
       </div>
+    </div>
+    <!-- Navbar -->
+    <nav
+      class="navbar bg-cream sticky top-0 z-50 lg:static"
+      aria-label="Main navigation"
+    >
+      <div class="navbar__container tw-layout">
+        <div class="navbar__inner flex items-center justify-between py-3">
+          <a href="#" onclick="event.preventDefault(); window.scrollTo(0, 0)"
+            ><img
+              src="images/kofee-logo.png"
+              class="navbar__logo"
+              alt="Kofee Logo"
+              loading="lazy"
+              decoding="async"
+          /></a>
 
-      <!-- Navbar -->
-      <nav class="navbar" aria-label="Main menu">
-        <div class="navbar__container tw-layout">
-          <div class="navbar__inner flex items-center justify-between py-3">
-            <a href="#"
-              ><img
-                src="images/kofee-logo.png"
-                class="navbar__logo"
-                alt="Kofee Logo"
-                loading="lazy"
-                decoding="async"
-            /></a>
+          <!-- Mobile menu button and overlay -->
+          <div class="navbar__mobile lg:hidden">
+            <input
+              id="navbar__menu-toggle"
+              class="peer hidden"
+              aria-controls="navbar__menu"
+              type="checkbox"
+            />
+            <label
+              for="navbar__menu-toggle"
+              class="navbar__toggle inline-block cursor-pointer peer-checked:hidden"
+              aria-label="Open menu"
+              role="button"
+              tabindex="0"
+            >
+              <!-- Menu icon -->
+              <svg class="navbar__menu-icon h-10 w-10">
+                <use href="#icon-menu"></use>
+              </svg>
+            </label>
+            <label
+              class="navbar__overlay pointer-events-none fixed inset-0 z-20 bg-black/50 opacity-0 transition-opacity duration-300 peer-checked:pointer-events-auto peer-checked:opacity-100"
+              for="navbar__menu-toggle"
+              aria-label="Close menu"
+              role="button"
+              tabindex="0"
+            ></label>
 
-            <!-- Mobile menu button and overlay -->
-            <div class="navbar__mobile lg:hidden">
-              <input
-                id="navbar__menu-toggle"
-                class="peer hidden"
-                aria-controls="navbar__menu"
-                type="checkbox"
-              />
+            <!-- Mobile menu and close button -->
+            <div
+              id="navbar__menu"
+              class="navbar__menu bg-cream fixed top-0 right-0 z-20 h-full w-4/5 translate-x-full transform gap-2 p-4 transition-transform duration-300 peer-checked:translate-x-0 sm:w-1/2"
+            >
               <label
-                for="navbar__menu-toggle"
-                class="navbar__toggle inline-block cursor-pointer peer-checked:hidden"
-                aria-label="Open menu"
-                role="button"
-                tabindex="0"
-              >
-                <!-- Menu icon -->
-                <svg class="navbar__menu-icon h-10 w-10">
-                  <use href="#icon-menu"></use>
-                </svg>
-              </label>
-              <label
-                class="navbar__overlay pointer-events-none fixed inset-0 z-20 bg-black/50 opacity-0 transition-opacity duration-300 peer-checked:pointer-events-auto peer-checked:opacity-100"
+                class="navbar__close text-greige inline-block cursor-pointer p-2 transition-colors duration-300 hover:text-black"
                 for="navbar__menu-toggle"
                 aria-label="Close menu"
                 role="button"
                 tabindex="0"
-              ></label>
-
-              <!-- Mobile menu and close button -->
-              <div
-                id="navbar__menu"
-                class="navbar__menu bg-cream fixed top-0 right-0 z-20 h-full w-4/5 translate-x-full transform gap-2 p-4 transition-transform duration-300 peer-checked:translate-x-0 sm:w-1/2"
               >
-                <label
-                  class="navbar__close text-greige inline-block cursor-pointer p-2 transition-colors duration-300 hover:text-black"
-                  for="navbar__menu-toggle"
-                  aria-label="Close menu"
-                  role="button"
-                  tabindex="0"
-                >
-                  <svg class="navbar__close-icon h-4 w-4">
-                    <use href="#icon-close"></use>
-                  </svg>
-                </label>
+                <svg class="navbar__close-icon h-4 w-4">
+                  <use href="#icon-close"></use>
+                </svg>
+              </label>
 
-                <!-- Mobile menu and search -->
-                <ul
-                  class="navbar__list navbar__list-mobile flex flex-col justify-between gap-2 px-2 py-3 tracking-wide uppercase"
-                >
-                  <li class="navbar__item">
-                    <a class="navbar__link text-tangerine tw-link" href="/"
-                      >Home</a
-                    >
-                  </li>
-                  <li class="navbar__item">
-                    <a class="navbar__link tw-link" href="/">About</a>
-                  </li>
-                  <li class="navbar__item">
-                    <a class="navbar__link tw-link" href="/">Services</a>
-                  </li>
-                  <li class="navbar__item">
-                    <a class="navbar__link tw-link" href="/">Blog</a>
-                  </li>
-                  <li class="navbar__item">
-                    <a class="navbar__link tw-link" href="/">Contact</a>
-                  </li>
-                  <li class="navbar__item">
-                    <label
-                      for="navbar__search-toggle-mobile"
-                      class="inline-block cursor-pointer"
-                      aria-label="Search menu"
-                      role="button"
-                    >
-                      <svg class="navbar__search-icon-mobile tw-link h-4 w-4">
-                        <use href="#icon-search"></use>
-                      </svg>
-                    </label>
-                  </li>
-                </ul>
-
-                <!-- Mobile search dropdown -->
-                <div class="navbar__search-dropdown-mobile">
-                  <input
-                    id="navbar__search-toggle-mobile"
-                    class="peer hidden"
-                    type="checkbox"
-                  />
-
-                  <!-- Mobile search form -->
-                  <form
-                    id="navbar__search-form-mobile"
-                    class="shadow-coffee/35 bg-cream pointer-events-none flex w-64 max-w-full scale-95 rounded p-4 opacity-0 shadow transition-all duration-300 peer-checked:pointer-events-auto peer-checked:scale-100 peer-checked:opacity-100"
-                    aria-label="Site search"
-                    role="search"
-                  >
-                    <input
-                      class="navbar__search-input-mobile placeholder-coffee border-tangerine w-full rounded rounded-r-none border border-r-0 px-3 py-2 focus:border-black focus:outline-none"
-                      placeholder="Search..."
-                      type="text"
-                    />
-                    <button
-                      class="navbar__search-button-mobile hover:bg-coffee text-cream bg-tangerine rounded rounded-l-none px-4 transition-colors duration-300"
-                      type="button"
-                    >
-                      <svg class="navbar__search-icon-mobile h-4 w-4">
-                        <use href="#icon-search"></use>
-                      </svg>
-                    </button>
-                  </form>
-                </div>
-              </div>
-            </div>
-
-            <!-- Desktop menu and search -->
-            <div class="navbar__desktop relative hidden lg:block">
+              <!-- Mobile menu and search -->
               <ul
-                class="navbar__list navbar__list-desktop flex justify-between gap-8 leading-none tracking-wide uppercase xl:gap-12"
+                class="navbar__list navbar__list-mobile flex flex-col justify-between gap-2 px-2 py-3 tracking-wide uppercase"
               >
-                <li class="navbar__item">
-                  <a class="navbar__link text-tangerine tw-link" href="#"
+                <li class="navbar__item-mobile">
+                  <a
+                    class="navbar__link text-tangerine tw-link"
+                    href="#"
+                    onclick="event.preventDefault(); window.scrollTo(0, 0)"
                     >Home</a
                   >
                 </li>
-                <li class="navbar__item">
-                  <a class="navbar__link tw-link" href="#">About</a>
+                <li class="navbar__item-mobile">
+                  <a class="navbar__link tw-link" href="#about">About Us</a>
                 </li>
-                <li class="navbar__item">
-                  <a class="navbar__link tw-link" href="#">Services</a>
+                <li class="navbar__item-mobile">
+                  <a class="navbar__link tw-link" href="#menu">Our Menu</a>
                 </li>
-                <li class="navbar__item">
-                  <a class="navbar__link tw-link" href="#">Blog</a>
+                <li class="navbar__item-mobile">
+                  <a class="navbar__link tw-link" href="#contact">Contact</a>
                 </li>
-                <li class="navbar__item">
-                  <a class="navbar__link tw-link" href="#">Contact</a>
+                <li class="navbar__item-mobile">
+                  <a class="navbar__link tw-link" href="#news">News</a>
                 </li>
-                <li class="navbar__item">
+                <li class="navbar__item-mobile">
+                  <a class="navbar__link tw-link" href="#gallery">Gallery</a>
+                </li>
+                <li class="navbar__item-mobile">
                   <label
-                    for="navbar__search-toggle-desktop"
+                    for="navbar__search-toggle-mobile"
                     class="inline-block cursor-pointer"
                     aria-label="Search menu"
                     role="button"
                   >
-                    <svg class="navbar__search-icon-desktop tw-link h-4 w-4">
+                    <svg class="navbar__search-icon-mobile tw-link h-4 w-4">
                       <use href="#icon-search"></use>
                     </svg>
                   </label>
                 </li>
               </ul>
 
-              <!-- Desktop search dropdown -->
-              <div
-                class="navbar__search-dropdown-desktop absolute top-8 right-0 z-20"
-              >
+              <!-- Mobile search dropdown -->
+              <div class="navbar__search-dropdown-mobile">
                 <input
-                  id="navbar__search-toggle-desktop"
+                  id="navbar__search-toggle-mobile"
                   class="peer hidden"
                   type="checkbox"
                 />
 
-                <!-- Desktop search form -->
+                <!-- Mobile search form -->
                 <form
-                  id="navbar__search-form-desktop"
+                  id="navbar__search-form-mobile"
                   class="shadow-coffee/35 bg-cream pointer-events-none flex w-64 max-w-full scale-95 rounded p-4 opacity-0 shadow transition-all duration-300 peer-checked:pointer-events-auto peer-checked:scale-100 peer-checked:opacity-100"
                   aria-label="Site search"
                   role="search"
                 >
                   <input
-                    class="navbar__search-input-desktop placeholder-coffee border-tangerine w-full rounded rounded-r-none border border-r-0 px-3 py-2 focus:border-black focus:outline-none"
+                    class="navbar__search-input-mobile placeholder-coffee border-tangerine w-full rounded rounded-r-none border border-r-0 px-3 py-2 focus:border-black focus:outline-none"
                     placeholder="Search..."
                     type="text"
                   />
                   <button
-                    class="navbar__search-button-desktop hover:bg-coffee text-cream bg-tangerine rounded rounded-l-none px-4 transition-colors duration-300"
+                    class="navbar__search-button-mobile hover:bg-coffee text-cream bg-tangerine rounded rounded-l-none px-4 transition-colors duration-300"
                     type="button"
                   >
-                    <svg class="navbar__search-icon-desktop h-4 w-4">
+                    <svg class="navbar__search-icon-mobile h-4 w-4">
                       <use href="#icon-search"></use>
                     </svg>
                   </button>
@@ -234,12 +169,88 @@
               </div>
             </div>
           </div>
+
+          <!-- Desktop menu and search -->
+          <div class="navbar__desktop relative hidden lg:block">
+            <ul
+              class="navbar__list navbar__list-desktop flex justify-between gap-6 leading-none tracking-wide uppercase xl:gap-8"
+            >
+              <li class="navbar__item-desktop">
+                <a
+                  class="navbar__link text-tangerine tw-link"
+                  href="#"
+                  onclick="event.preventDefault(); window.scrollTo(0, 0)"
+                  >Home</a
+                >
+              </li>
+              <li class="navbar__item-desktop">
+                <a class="navbar__link tw-link" href="#about">About Us</a>
+              </li>
+              <li class="navbar__item-desktop">
+                <a class="navbar__link tw-link" href="#menu">Our Menu</a>
+              </li>
+              <li class="navbar__item-desktop">
+                <a class="navbar__link tw-link" href="#contact">Contact</a>
+              </li>
+              <li class="navbar__item-desktop">
+                <a class="navbar__link tw-link" href="#news">News</a>
+              </li>
+              <li class="navbar__item-desktop">
+                <a class="navbar__link tw-link" href="#gallery">Gallery</a>
+              </li>
+              <li class="navbar__item-desktop">
+                <label
+                  for="navbar__search-toggle-desktop"
+                  class="inline-block cursor-pointer"
+                  aria-label="Search menu"
+                  role="button"
+                >
+                  <svg class="navbar__search-icon-desktop tw-link h-4 w-4">
+                    <use href="#icon-search"></use>
+                  </svg>
+                </label>
+              </li>
+            </ul>
+
+            <!-- Desktop search dropdown -->
+            <div
+              class="navbar__search-dropdown-desktop absolute top-8 right-0 z-20"
+            >
+              <input
+                id="navbar__search-toggle-desktop"
+                class="peer hidden"
+                type="checkbox"
+              />
+
+              <!-- Desktop search form -->
+              <form
+                id="navbar__search-form-desktop"
+                class="shadow-coffee/35 bg-cream pointer-events-none flex w-64 max-w-full scale-95 rounded p-4 opacity-0 shadow transition-all duration-300 peer-checked:pointer-events-auto peer-checked:scale-100 peer-checked:opacity-100"
+                aria-label="Site search"
+                role="search"
+              >
+                <input
+                  class="navbar__search-input-desktop placeholder-coffee border-tangerine w-full rounded rounded-r-none border border-r-0 px-3 py-2 focus:border-black focus:outline-none"
+                  placeholder="Search..."
+                  type="text"
+                />
+                <button
+                  class="navbar__search-button-desktop hover:bg-coffee text-cream bg-tangerine rounded rounded-l-none px-4 transition-colors duration-300"
+                  type="button"
+                >
+                  <svg class="navbar__search-icon-desktop h-4 w-4">
+                    <use href="#icon-search"></use>
+                  </svg>
+                </button>
+              </form>
+            </div>
+          </div>
         </div>
-      </nav>
-    </header>
-    <main>
+      </div>
+    </nav>
+    <header>
       <section class="hero">
-        <div class="hero__container relative lg:mb-31 xl:mb-32 2xl:mb-29">
+        <div class="hero__container relative pb-7 lg:mb-31 xl:mb-32 2xl:mb-29">
           <img
             src="images/hero-bg.png"
             class="hero__image mx-auto mb-4 shadow-md lg:mb-0 lg:shadow-lg"
@@ -301,8 +312,10 @@
           </div>
         </div>
       </section>
-      <section class="about">
-        <div class="about__container tw-layout">
+    </header>
+    <main>
+      <section id="about" class="about">
+        <div class="about__container tw-layout py-7">
           <div
             class="about__wrapper flex flex-col items-center gap-6 md:flex-row md:gap-0"
           >
@@ -346,7 +359,7 @@
         </div>
       </section>
       <section class="features">
-        <div class="features__container tw-layout">
+        <div class="features__container tw-layout py-7">
           <ul
             class="features__list grid grid-cols-1 text-center md:grid-cols-2 xl:grid-cols-4"
           >
@@ -421,7 +434,7 @@
         </div>
       </section>
       <section class="categories">
-        <div class="categories__wrapper tw-layout md:max-w-full">
+        <div class="categories__wrapper tw-layout py-7 md:max-w-full">
           <ul
             class="categories__list flex flex-col justify-between gap-6 md:flex-row"
           >
@@ -454,8 +467,8 @@
           </ul>
         </div>
       </section>
-      <section class="menu">
-        <div class="menu__wrapper tw-layout flex flex-col gap-6 lg:gap-10">
+      <section id="menu" class="menu">
+        <div class="menu__wrapper tw-layout flex flex-col gap-6 py-7 lg:gap-10">
           <!-- Section Header -->
           <header class="menu__header mx-auto w-full max-w-xl lg:mx-0">
             <h2 class="menu__title">Our Menu</h2>
@@ -834,8 +847,8 @@
           </div>
         </div>
       </section>
-      <section class="reservation">
-        <div class="reservation__container tw-layout">
+      <section id="contact" class="reservation">
+        <div class="reservation__container tw-layout py-7">
           <div
             class="reservation__inner flex flex-col shadow-md lg:max-w-full lg:flex-row lg:shadow-lg"
           >
@@ -949,7 +962,7 @@
       </section>
       <section class="testimonials">
         <div
-          class="testimonials__container mx-auto flex w-full max-w-xs flex-col items-start gap-4 px-4 sm:max-w-xl sm:flex-row sm:gap-8 sm:px-8 md:max-w-3xl lg:max-w-4xl xl:max-w-5xl"
+          class="testimonials__container mx-auto flex w-full max-w-xs flex-col items-start gap-4 px-4 py-7 sm:max-w-xl sm:flex-row sm:gap-8 sm:px-8 md:max-w-3xl lg:max-w-4xl xl:max-w-5xl"
         >
           <!-- Quotes icon -->
           <svg
@@ -1029,9 +1042,9 @@
           </div>
         </div>
       </section>
-      <section class="news">
+      <section id="news" class="news">
         <div
-          class="news__container tw-layout flex max-w-3xl flex-col gap-6 px-4"
+          class="news__container tw-layout flex max-w-3xl flex-col gap-6 px-4 py-7"
         >
           <!-- Heading -->
           <div class="news__intro flex w-full max-w-lg flex-col">
@@ -1112,9 +1125,9 @@
           <button class="news__button tw-button">News Articles</button>
         </div>
       </section>
-      <section class="gallery">
+      <section id="gallery" class="gallery">
         <div
-          class="gallery__grid tw-layout grid grid-cols-1 gap-5 px-4 sm:grid-cols-3 md:max-w-full lg:grid-cols-6"
+          class="gallery__grid tw-layout grid grid-cols-1 gap-5 px-4 py-7 sm:grid-cols-3 md:max-w-full lg:grid-cols-6"
         >
           <figure class="gallery__item mx-auto aspect-square">
             <img
@@ -1238,7 +1251,7 @@
         </div>
       </section>
       <section class="partners">
-        <div class="partners__container tw-layout">
+        <div class="partners__container tw-layout pt-7">
           <ul
             class="text-beige flex h-8 justify-between gap-4 sm:gap-10 lg:gap-20"
           >
@@ -1427,6 +1440,14 @@
         </p>
       </div>
     </footer>
+    <!-- Anchor button -->
+    <a
+      href="#"
+      class="bg-tangerine fixed right-4 bottom-4 rounded-full px-4 py-2 text-lg font-bold text-white opacity-50 transition-opacity hover:opacity-100"
+      onclick="event.preventDefault(); window.scrollTo(0, 0)"
+    >
+      ↑
+    </a>
     <svg
       xmlns="http://www.w3.org/2000/svg"
       class="hidden"
@@ -1587,6 +1608,7 @@
       );
 
       const menuToggle = document.getElementById("navbar__menu-toggle");
+      const menuItemsMobile = document.querySelectorAll(".navbar__item-mobile");
 
       function setupSearchToggle(label, form, toggle) {
         document.addEventListener("click", (event) => {
@@ -1623,6 +1645,14 @@
           }
         });
       }
+
+      menuItemsMobile.forEach((item) => {
+        item.addEventListener("click", (event) => {
+          if (!event.target.closest("label")) {
+            menuToggle.checked = false;
+          }
+        });
+      });
     })();
   </script>
 </html>
